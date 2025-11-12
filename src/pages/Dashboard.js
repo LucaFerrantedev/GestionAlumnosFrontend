@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { API_BASE_URL } from '../config';
-import '../styles/Dashboard.css'; // Importa el CSS que creamos antes
+import '../styles/Dashboard.css';
 
 // Componente para evitar el error de Hooks
 const MateriaAlumnosView = ({ materiaId, getHeaders, setView }) => {
