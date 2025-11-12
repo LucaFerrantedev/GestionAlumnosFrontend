@@ -64,10 +64,10 @@ const Login = () => {
                 </button>
                 {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
             </form>
-            <p style={{ marginTop: '20px', fontSize: '12px', color: '#666' }}>
-                **Credenciales de prueba:**<br />
-                Admin: admin** / 123456<br />
-                Alumno: alumno / 123456
+            <p style={{ marginTop: '20px', fontSize: '16px', color: '#666' }}>
+                Credenciales de prueba:<br />
+                Admin: admin / 123456<br />
+                Alumno: alumno / 123456<br />
                 Coordinador: coordinador / 123456
             </p>
         </div>
