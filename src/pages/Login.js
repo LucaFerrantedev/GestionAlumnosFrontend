@@ -66,9 +66,9 @@ const Login = () => {
             </form>
             <p style={{ marginTop: '20px', fontSize: '16px', color: '#666' }}>
                 Credenciales de prueba:<br />
-                Admin: admin / 123456<br />
-                Alumno: alumno / 123456<br />
-                Coordinador: coordinador / 123456
+                Admin: admin / 123<br />
+                Alumno: alumno / 123<br />
+                Coordinador: coordinador / 123
             </p>
         </div>
     );
