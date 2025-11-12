@@ -419,7 +419,7 @@ const Dashboard = () => {
               .filter(m => m.fecha_baja === null)
               .map(m => (
                 <li key={m.id} style={{ marginBottom: '10px', padding: '10px', border: '1px solid #eee' }}>
-                  **{m.materia}** ({m.carrera}) - ID: {m.id}
+                  {m.materia} ({m.carrera}) - ID: {m.id}
                   <button
                     onClick={() => handleEnrollment(m.id)}
                     className="btn btn-blue"
@@ -625,7 +625,7 @@ const Dashboard = () => {
       <header className="dashboard-header">
         <h1 style={{ margin: 0 }}>Panel de Gestión de Alumnos</h1>
         <div className="user-info">
-          <span>👤 Rol: **{rolNombre}** | ID: {user.id}</span>
+          <span>👤 Rol: {rolNombre} | ID: {user.id}</span>
           <button onClick={logout} className="btn btn-red" style={{ marginLeft: '20px' }}>
             Cerrar Sesión
           </button>
@@ -634,9 +634,11 @@ const Dashboard = () => {
 
       {/* Pestañas de Navegación */}
       <nav className="dashboard-nav">
-        <button onClick={() => setView('profile')} className={`nav-button ${view === 'profile' ? 'active' : ''}`}>
-          {isStudent ? 'Mis Inscripciones' : 'Mi Perfil'}
-        </button>
+        {isStudent && (
+          <button onClick={() => setView('profile')} className={`nav-button ${view === 'profile' ? 'active' : ''}`}>
+            Mis Inscripciones
+          </button>
+        )}
         {isManagement && (
           <>
             <button onClick={() => setView('students')} className={`nav-button ${view === 'students' ? 'active' : ''}`}>
