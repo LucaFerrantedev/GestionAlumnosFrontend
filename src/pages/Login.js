@@ -13,7 +13,7 @@ const Login = () => {
         setError('');
 
         try {
-            // Endpoint: POST /api/login
+            // POST /api/login
             const response = await fetch(`${API_BASE_URL}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -26,7 +26,6 @@ const Login = () => {
                 // La API devuelve el token si el login es exitoso
                 login(data.token);
             } else {
-                // Muestra el mensaje de error de la API (ej: 'Usuario no encontrado')
                 setError(data.msg || 'Error de inicio de sesión desconocido');
             }
         } catch (err) {
