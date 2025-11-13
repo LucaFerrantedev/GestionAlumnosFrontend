@@ -92,7 +92,7 @@ const Dashboard = () => {
     'Authorization': `Bearer ${authToken}`
   }), [authToken]);
 
-  // --- Funciones de Fetching (Carga de Datos) ---
+  // --- Funciones de carga de datos ---
 
   const fetchMaterias = useCallback(async (all = false) => {
     setLoading(true);
@@ -235,7 +235,6 @@ const Dashboard = () => {
 
     setLoading(true);
     try {
-      // DELETE /api/alumnos/:id para baja lógica
       const response = await fetch(`${API_BASE_URL}/alumnos/${alumnoId}`, {
         method: 'DELETE',
         headers: getHeaders(),
@@ -254,7 +253,7 @@ const Dashboard = () => {
     }
   };
 
-  // ✨ NUEVA FUNCIÓN: Reactiva al alumno (remueve fecha_baja)
+  // Reactiva al alumno (remueve fecha_baja)
   const handleReactivateStudent = async (alumnoId) => {
     if (!window.confirm('¿Estás seguro de que quieres reactivar a este alumno?')) return;
     if (!isAdmin) {
@@ -266,13 +265,13 @@ const Dashboard = () => {
     try {
       // Asumiendo la nueva ruta PUT /api/alumnos/:id/reactivar
       const response = await fetch(`${API_BASE_URL}/alumnos/${alumnoId}/reactivar`, {
-        method: 'PUT', // Usamos PUT para esta acción
+        method: 'PUT',
         headers: getHeaders(),
       });
       const data = await response.json();
       if (response.ok) {
         setMessage(data.msg || 'Alumno reactivado correctamente.');
-        fetchStudents(); // Recargar lista de alumnos
+        fetchStudents();
       } else {
         setError(data.msg || 'Error al reactivar alumno. (Verifica si la ruta /reactivar está configurada en el backend)');
       }
@@ -306,7 +305,7 @@ const Dashboard = () => {
   };
 
 
-  // --- Componentes de Formulario (Sin cambios) ---
+  // --- Componentes de Formulario ---
 
   const CreateStudentForm = ({ onCreated }) => {
     const [form, setForm] = useState({ nombre: '', mail: '', usuario: '', contrasena: '' });
@@ -373,7 +372,7 @@ const Dashboard = () => {
   };
 
 
-  // --- Render Vistas (Rol 3, Sin cambios) ---
+  // --- Render Vistas (Rol 3 alumno) ---
 
   const renderStudentView = () => (
     <>
@@ -436,7 +435,7 @@ const Dashboard = () => {
     </>
   );
 
-  // --- Render Vistas (Roles 1 y 2) ---
+  // --- Render Vistas (Roles 1 admin y 2 coordinador) ---
 
   const renderStudentsView = () => (
     <>
