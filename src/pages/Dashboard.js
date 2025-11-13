@@ -594,7 +594,7 @@ const Dashboard = () => {
     switch (view) {
       case 'profile':
         if (isStudent) return renderStudentView();
-        if (isManagement) return <p>Bienvenido. Usa la navegación de arriba para empezar a gestionar.</p>;
+        if (isManagement) return <p>Bienvenido.</p>;
         break;
       case 'students':
         if (isManagement) return renderStudentsView();
